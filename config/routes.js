@@ -4,6 +4,7 @@ const { authenticate } = require('../auth/authenticate');
 const db = require('../database/dbConfig')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const secret = process.env.JWT_SECRET;
 
 module.exports = server => {
   server.post('/api/register', register);
@@ -44,7 +45,6 @@ function login(req, res) {
       const payload = {
         subject: user.username,
       }
-      const secret = "this is secret"
       const options = {
         expiresIn: '1d'
       }
