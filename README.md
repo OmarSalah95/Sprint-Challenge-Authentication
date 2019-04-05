@@ -29,12 +29,21 @@ Implement an User Authentication System in order to access the jokes from the Jo
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. What is the purpose of using _sessions_? 
-    To allow the user to store some state through HTTP which is stateless so that users don't need to login continually,
+    To allow the user to store some state through HTTP which is stateless so that users don't need to login continually.
+
 1. What does bcrypt do to help us store passwords in a secure manner.
+    Hashes passwords prior to storage in the DB so that it isn't translated to plain text anywhere other than on the client allowing us to compare passwords prior to and post hashing for authentication.
 
 1. What does bcrypt do to slow down attackers?
+    Are you talking about salting here?
+
 
 1. What are the three parts of the JSON Web Token?
+    a fully encrypted(with your flavor of encrypti0n I may add) 3 part string that decifers to a:
+        Header {contains the settings and config}
+        Payload {The data the dev is trying to pass}
+        Signature {A unique signature that JWT will test again to verify token is unchanged}
+
 
 ## Project Set Up
 
@@ -62,12 +71,12 @@ Helpful Tip on Testing this Project:
 ## Minimum Viable Product
 
 - [x] Implement the `register` function inside `/config/routes.js`.
-- [ ] Implement the `login` function inside `/config/routes.js`.
+- [x] Implement the `login` function inside `/config/routes.js`.
 - [x] Use JSON Web Tokens for authentication.
 
 **Note** The migrations and a database with empty users is already included
 
-- [] Add the authentication related code. If everything is done correctly, visiting `/api/jokes` should return a list of jokes.
+- [x] Add the authentication related code. If everything is done correctly, visiting `/api/jokes` should return a list of jokes.
 
 ## Stretch Problem: Build a front end to interface with your User Auth System
 
